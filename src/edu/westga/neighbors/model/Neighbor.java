@@ -17,7 +17,7 @@ public class Neighbor implements Runnable {
 	private int indicator;
 
 	/**
-	 * Private constructor to ensure only use of parameterized constructor
+	 * Private constructor to ensure use of parameterized constructor
 	 */
 	@SuppressWarnings("unused")
 	private Neighbor() {
@@ -39,7 +39,7 @@ public class Neighbor implements Runnable {
 	 * @param peterson
 	 *            The peterson shared turn
 	 * @param indicator
-	 *            The individual turn indicator of this neighbor to be used by
+	 *            The individual turn value of this neighbor to be used by
 	 *            the peterson.
 	 */
 	public Neighbor(String name, Field field, Peterson peterson, int indicator) {
