@@ -76,7 +76,7 @@ public class Neighbor implements Runnable {
 			this.peterson.set(this.indicator);
 			this.handleFlag();
 
-			if ((this.peterson.getStatus() == this.indicator) && this.flag) {
+			if ((this.peterson.getStatus() == this.indicator) && this.getFlagStatus()) {
 
 				this.enterField();
 				this.pickBerries();

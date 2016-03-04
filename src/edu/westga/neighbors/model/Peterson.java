@@ -14,7 +14,7 @@ public class Peterson {
 	 * Instantiates a new peterson.
 	 */
 	public Peterson() {
-		this.indicator = 0;
+		this.indicator = 1;
 	}
 
 	/**
