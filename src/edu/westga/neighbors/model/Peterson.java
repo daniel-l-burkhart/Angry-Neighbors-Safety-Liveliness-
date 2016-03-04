@@ -12,6 +12,9 @@ public class Peterson {
 
 	/**
 	 * Instantiates a new peterson.
+	 * 
+	 * @precondition: None
+	 * @postcondition: A peterson object is created.
 	 */
 	public Peterson() {
 		this.indicator = 1;
@@ -22,8 +25,11 @@ public class Peterson {
 	 *
 	 * @param value
 	 *            the value
+	 * 
+	 * @precondition: None
+	 * @postcondition: The turn value is set.
 	 */
-	public synchronized void set(int value) {
+	public void set(int value) {
 		this.indicator = value;
 	}
 
@@ -31,6 +37,9 @@ public class Peterson {
 	 * Gets the status.
 	 *
 	 * @return the status
+	 * 
+	 * @precondition: None
+	 * @postcondition: None
 	 */
 	public int getStatus() {
 		return this.indicator;

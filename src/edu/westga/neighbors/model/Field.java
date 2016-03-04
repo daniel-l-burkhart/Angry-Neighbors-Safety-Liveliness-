@@ -12,6 +12,9 @@ public class Field {
 
 	/**
 	 * Instantiates a new field.
+	 * 
+	 * @precondition: None
+	 * @postcondition: A field object is created.
 	 */
 	public Field() {
 
@@ -21,6 +24,9 @@ public class Field {
 
 	/**
 	 * Enter the field.
+	 * 
+	 * @precondition: None
+	 * @postcondition: A neighbor has entered the field.
 	 */
 	public void enter() {
 
@@ -36,6 +42,9 @@ public class Field {
 
 	/**
 	 * Leave the field.
+	 * 
+	 * @precondition: None
+	 * @postcondition: A neighbor has left the field.
 	 */
 	public void leave() {
 		this.visitors--;

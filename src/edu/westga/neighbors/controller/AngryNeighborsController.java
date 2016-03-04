@@ -21,6 +21,9 @@ public class AngryNeighborsController {
 
 	/**
 	 * Instantiates a new angry neighbors controller.
+	 * 
+	 * @precondition: None
+	 * @postcondition: A controller object is made
 	 */
 	public AngryNeighborsController() {
 
@@ -40,6 +43,9 @@ public class AngryNeighborsController {
 
 	/**
 	 * Opens field for business.
+	 * 
+	 * @precondition: None
+	 * @postcondition: The field is open
 	 */
 	public void openField() {
 
@@ -53,6 +59,9 @@ public class AngryNeighborsController {
 
 	/**
 	 * Starts the threads.
+	 * 
+	 * @precondition: None
+	 * @postcondition: The threads started
 	 */
 	private void startThreads() {
 		this.firstThread.start();
@@ -62,6 +71,9 @@ public class AngryNeighborsController {
 	/**
 	 * Calls thread.sleep for 10 seconds to let the threads execute for that
 	 * time.
+	 * 
+	 * @precondition: None
+	 * @postcondition: The threads run for 10 seconds
 	 */
 	private void waitForTenSeconds() {
 		try {
@@ -73,6 +85,9 @@ public class AngryNeighborsController {
 
 	/**
 	 * Stops the threads.
+	 * 
+	 * @precondition: None.
+	 * @postcondition: The threads stop
 	 */
 	private void stopThreads() {
 		this.firstNeighbor.stop();

@@ -39,8 +39,11 @@ public class Neighbor implements Runnable {
 	 * @param peterson
 	 *            The peterson shared turn
 	 * @param indicator
-	 *            The individual turn value of this neighbor to be used by
-	 *            the peterson.
+	 *            The individual turn value of this neighbor to be used by the
+	 *            peterson.
+	 * 
+	 * @precondition: name, field, and peterson cannot be null
+	 * @postcondition: A neighbor object is created.
 	 */
 	public Neighbor(String name, Field field, Peterson peterson, int indicator) {
 
@@ -63,6 +66,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * The run method of the Thread.
+	 * 
+	 * @precondition: none
+	 * @postcondition: none
 	 */
 	@Override
 	public void run() {
@@ -92,6 +98,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * Handles the flag.
+	 * 
+	 * @precondition: none
+	 * @postcondition: flag has been raised.
 	 */
 	private void handleFlag() {
 		if (this.neighbor.getFlagStatus()) {
@@ -104,6 +113,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * When one neighbor enters the field.
+	 * 
+	 * @precondition: none
+	 * @postcondition: A neighbor enters the field.
 	 */
 	private void enterField() {
 		this.field.enter();
@@ -112,6 +124,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * When the neighbor picks berries.
+	 * 
+	 * @precondition: None
+	 * @postcondition: None
 	 */
 	private void pickBerries() {
 
@@ -125,6 +140,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * Neighbor leaves field.
+	 * 
+	 * @precondition: none
+	 * @postcondition: A neighbor leaves the field.
 	 */
 	private void leaveField() {
 		this.field.leave();
@@ -133,6 +151,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * Wait for two seconds.
+	 * 
+	 * @precondition: none
+	 * @postcondition: none
 	 */
 	private void waitForTwoSeconds() {
 		try {
@@ -144,6 +165,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * Stop method for thread.
+	 * 
+	 * @precondition: none
+	 * @postcondition: the threads are stopped.
 	 */
 	public void stop() {
 		this.keepWorking = false;
@@ -154,6 +178,9 @@ public class Neighbor implements Runnable {
 	 *
 	 * @param neighbor
 	 *            The neighbor of this object.
+	 * 
+	 * @precondition: Neighbor cannot be null.
+	 * @postcondition: This neighbor's neighbor is set.
 	 */
 	public void setNeighbor(Neighbor neighbor) {
 		if (neighbor == null) {
@@ -166,6 +193,9 @@ public class Neighbor implements Runnable {
 	 * Finds if the flag is raised or lowered.
 	 *
 	 * @return True if flag is raised, false otherwise.
+	 * 
+	 * @precondition: None
+	 * @postcondition: None
 	 */
 	public boolean getFlagStatus() {
 		return this.flag;
@@ -173,6 +203,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * Lowers this neighbor's flag.
+	 * 
+	 * @precondition: None
+	 * @postcondition: Flag is lowered
 	 */
 	public void lowerFlag() {
 		this.flag = false;
@@ -180,6 +213,9 @@ public class Neighbor implements Runnable {
 
 	/**
 	 * Raises this neighbor's flag.
+	 * 
+	 * @precondition: None
+	 * @postcondition: Flag is raised
 	 */
 	public void raiseFlag() {
 		this.flag = true;
