@@ -19,6 +19,7 @@ public class Neighbor implements Runnable {
 	/**
 	 * Private constructor to ensure only use of parameterized constructor
 	 */
+	@SuppressWarnings("unused")
 	private Neighbor() {
 		this.name = null;
 		this.field = null;

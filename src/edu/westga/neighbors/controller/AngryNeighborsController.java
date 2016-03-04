@@ -27,9 +27,8 @@ public class AngryNeighborsController {
 		this.field = new Field();
 		this.peterson = new Peterson();
 
-		this.firstNeighbor = new Neighbor("Katy Perry", field, peterson, 1);
-
-		this.secondNeighbor = new Neighbor("Taylor Swift", field, peterson, 2);
+		this.firstNeighbor = new Neighbor("Mary, Queen of Scots", field, peterson, 1);
+		this.secondNeighbor = new Neighbor("Elizabeth I", field, peterson, 2);
 
 		this.firstNeighbor.setNeighbor(secondNeighbor);
 		this.secondNeighbor.setNeighbor(firstNeighbor);
@@ -44,18 +43,40 @@ public class AngryNeighborsController {
 	 */
 	public void openField() {
 
+		this.startThreads();
+
+		this.waitForTenSeconds();
+
+		this.stopThreads();
+
+	}
+
+	/**
+	 * Starts the threads.
+	 */
+	private void startThreads() {
 		this.firstThread.start();
 		this.secondThread.start();
+	}
 
+	/**
+	 * Calls thread.sleep for 10 seconds to let the threads execute for that
+	 * time.
+	 */
+	private void waitForTenSeconds() {
 		try {
 			Thread.sleep(10 * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
 
+	/**
+	 * Stops the threads.
+	 */
+	private void stopThreads() {
 		this.firstNeighbor.stop();
 		this.secondNeighbor.stop();
-
 	}
 
 }
