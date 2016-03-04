@@ -12,11 +12,14 @@ public class Field {
 
 	public void enter() {
 
-		if ((this.visitors + 1) == 2) {
+		if (this.visitors == 2) {
 			throw new IllegalStateException("Neighbors are fighting");
-		} else {
+		}
+
+		if(this.visitors < 2){
 			this.visitors++;
 		}
+
 	}
 
 	public void leave() {

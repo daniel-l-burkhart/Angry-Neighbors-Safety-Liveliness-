@@ -36,7 +36,7 @@ public class Neighbor implements Runnable {
 		this.keepWorking = true;
 		this.neighbor = null;
 		this.peterson = peterson;
-		this.peterson.set(indicator);
+		
 		this.indicator = indicator;
 	}
 
@@ -53,16 +53,16 @@ public class Neighbor implements Runnable {
 				throw new IllegalStateException("Neighbor is null");
 			}
 
+			this.peterson.set(indicator);
 			this.handleFlag();
 
-			while (this.peterson.getStatus() == this.indicator && this.flag) {
+			if ((this.peterson.getStatus() == this.indicator) && this.flag) {
+				
 				this.enterField();
-
 				this.pickBerries();
-
 				this.leaveField();
-
 				this.lowerFlag();
+			
 			}
 			
 			this.waitForTwoSeconds();
