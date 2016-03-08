@@ -19,14 +19,15 @@ public class Neighbor implements Runnable {
 	/**
 	 * Private constructor to ensure use of parameterized constructor
 	 */
-	@SuppressWarnings("unused")
 	private Neighbor() {
+
 		this.name = null;
 		this.field = null;
 		this.keepWorking = false;
 		this.flag = false;
 		this.peterson = null;
 		this.indicator = 0;
+
 	}
 
 	/**
@@ -80,9 +81,10 @@ public class Neighbor implements Runnable {
 			}
 
 			this.peterson.set(this.indicator);
-			this.handleFlag();
 
-			if ((this.peterson.getStatus() == this.indicator) && this.getFlagStatus()) {
+			this.lowerNeighborsAndRaiseMyFlag();
+
+			if (this.isItMyTurn() && this.getFlagStatus()) {
 
 				this.enterField();
 				this.pickBerries();
@@ -97,15 +99,21 @@ public class Neighbor implements Runnable {
 	}
 
 	/**
+	 * @return true if its this neighbors turn, false otherwise.
+	 */
+	private boolean isItMyTurn() {
+		return (this.peterson.getStatus() == this.indicator);
+	}
+
+	/**
 	 * Handles the flag.
 	 * 
 	 * @precondition: none
 	 * @postcondition: flag has been raised.
 	 */
-	private void handleFlag() {
+	private void lowerNeighborsAndRaiseMyFlag() {
 		if (this.neighbor.getFlagStatus()) {
 			this.neighbor.lowerFlag();
-
 		} else {
 			this.raiseFlag();
 		}

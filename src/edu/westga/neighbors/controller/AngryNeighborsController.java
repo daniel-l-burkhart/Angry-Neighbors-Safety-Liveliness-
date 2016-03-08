@@ -14,10 +14,10 @@ public class AngryNeighborsController {
 
 	private Field field;
 	private Peterson peterson;
-	private Neighbor firstNeighbor;
-	private Neighbor secondNeighbor;
-	private Thread firstThread;
-	private Thread secondThread;
+	private Neighbor maryNeighbor;
+	private Neighbor elizabethNeighbor;
+	private Thread maryThread;
+	private Thread elizabethThread;
 
 	/**
 	 * Instantiates a new angry neighbors controller.
@@ -30,14 +30,14 @@ public class AngryNeighborsController {
 		this.field = new Field();
 		this.peterson = new Peterson();
 
-		this.firstNeighbor = new Neighbor("Mary, Queen of Scots", field, peterson, 1);
-		this.secondNeighbor = new Neighbor("Elizabeth I", field, peterson, 2);
+		this.maryNeighbor = new Neighbor("Mary, Queen of Scots", field, peterson, 1);
+		this.elizabethNeighbor = new Neighbor("Elizabeth I", field, peterson, 2);
 
-		this.firstNeighbor.setNeighbor(secondNeighbor);
-		this.secondNeighbor.setNeighbor(firstNeighbor);
+		this.maryNeighbor.setNeighbor(elizabethNeighbor);
+		this.elizabethNeighbor.setNeighbor(maryNeighbor);
 
-		this.firstThread = new Thread(this.firstNeighbor);
-		this.secondThread = new Thread(this.secondNeighbor);
+		this.maryThread = new Thread(this.maryNeighbor);
+		this.elizabethThread = new Thread(this.elizabethNeighbor);
 
 	}
 
@@ -64,8 +64,8 @@ public class AngryNeighborsController {
 	 * @postcondition: The threads started
 	 */
 	private void startThreads() {
-		this.firstThread.start();
-		this.secondThread.start();
+		this.maryThread.start();
+		this.elizabethThread.start();
 	}
 
 	/**
@@ -90,8 +90,8 @@ public class AngryNeighborsController {
 	 * @postcondition: The threads stop
 	 */
 	private void stopThreads() {
-		this.firstNeighbor.stop();
-		this.secondNeighbor.stop();
+		this.maryNeighbor.stop();
+		this.elizabethNeighbor.stop();
 	}
 
 }
